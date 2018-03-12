@@ -1,0 +1,7 @@
+# Install selenium
+pip install selenium
+
+# Download gecko driver, place in /usr/local/bin
+https://github.com/mozilla/geckodriver/releases
+
+# When in doubt, google 'python selenium tutorial'. Find some installation instructions
