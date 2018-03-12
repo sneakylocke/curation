@@ -1,7 +1,10 @@
-# Install selenium
+# Install selenium (you may need to import selenium from within pycharm itself)
 pip install selenium
 
 # Download gecko driver, place in /usr/local/bin
 https://github.com/mozilla/geckodriver/releases
+
+# Install the chromedriver needed by selenium (you may need to install brew, google it)
+brew install chromedriver
 
 # When in doubt, google 'python selenium tutorial'. Find some installation instructions
