@@ -17,7 +17,7 @@ class CurateSearch:
 class CurateDriver:
 
     DEFAULT_URL = "https://www.google.com/search?q={}"
-    SLEEP_TIME = 0.05
+    SLEEP_TIME = 0.0
 
     def run(self, searches, company):
 
@@ -33,6 +33,7 @@ class CurateDriver:
         # Open all tabs
         for i, search in enumerate(searches):
 
+            # Split company words so we can form a string that works with a url
             split_words = company.split(" ")
 
             # If we have a custom url we can drop the website from the words we are joining (the term 'youtube' is not
@@ -62,12 +63,19 @@ class CurateDriver:
         while True:
             pass
 
+# A list of all the searches
 searches = [CurateSearch.standard_search('pitchbook'),
             CurateSearch.standard_search('crunchbase'),
             CurateSearch('youtube', 'https://www.youtube.com/results?search_query={}', "+"),
-            CurateSearch.standard_search('twitter'),
-            CurateSearch.standard_search('facebook')]
+            CurateSearch('twitter', 'https://twitter.com/search?q={}&src=typd', "%20"),
+            CurateSearch('facebook', 'https://facebook.com/search/top/?q={}', "+"),
+            CurateSearch.standard_search('itunes'),
+            CurateSearch.standard_search('google play'),
+            CurateSearch.standard_search('instagram')]
 
+# The company you are researching
+company = "mad paws"
+
+# Create the driver and run it
 curate_driver = CurateDriver()
-curate_driver.run(searches, "super evil megacorp")
-
+curate_driver.run(searches, company)
